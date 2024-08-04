@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shaurya Fatania's professional web developer portfolio showcasing projects, skills, and certifications.">
+    <title>Shaurya Fatania - Professional Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0a192f;
+            --text-color: #8892b0;
+            --highlight-color: #64ffda;
+            --secondary-color: #112240;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--highlight-color);
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: #ccd6f6;
+            animation: slideInLeft 1.5s ease-in-out;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            animation: slideInLeft 1.8s ease-in-out;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            max-width: 500px;
+            animation: slideInLeft 2.1s ease-in-out;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--highlight-color);
+            padding: 15px 25px;
+            text-decoration: none;
+            border: 1px solid var(--highlight-color);
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: slideInLeft 2.4s ease-in-out;
+        }
+        
+        .btn:hover {
+            background-color: rgba(100,255,218,0.1);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            color: #ccd6f6;
+            margin-bottom: 50px;
+        }
+        
+        .project {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+        }
+        
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px -20px rgba(2,12,27,0.7);
+        }
+        
+        .project h3 {
+            color: #ccd6f6;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-links a {
+            color: var(--highlight-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .project-links a:hover {
+            color: #ccd6f6;
+        }
+        
+        .certificates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .certificate {
+            width: calc(33% - 20px);
+            background-color: var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+            text-align: center;
+        }
+        
+        .certificate:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px -20px rgba(2,12,27,0.7);
+        }
+        
+        .certificate h3 {
+            color: #ccd6f6;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .certificate img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .contact-icons a {
+            margin: 0 15px;
+            font-size: 2rem;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        
+        .contact-icons a:hover {
+            color: var(--highlight-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            transition: opacity 0.5s ease;
+        }
+        
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--highlight-color);
+        }
+
+        /* Light theme colors */
+        body.light-theme {
+            --bg-color: #f0f0f0;
+            --text-color: #333333;
+            --highlight-color: #0077b6;
+            --secondary-color: #ffffff;
+        }
+
+        body.light-theme .hero h1,
+        body.light-theme .hero h2,
+        body.light-theme section h2,
+        body.light-theme .project h3,
+        body.light-theme .certificate h3 {
+            color: #333333;
+        }
+
+        body.light-theme header {
+            background-color: rgba(240, 240, 240, 0.85);
+        }
+
+        body.light-theme .project,
+        body.light-theme .certificate {
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div id="background" class="background"></div>
+
+    <header id="header">
+        <nav class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><span id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">&#9728;</span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div>
+            <h1>Shaurya Fatania</h1>
+            <h2>Web Developer & Designer</h2>
+            <p>Welcome to my professional portfolio. Here you can find my latest projects, skills, and certifications. Let's create something amazing together!</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Project 1: Portfolio Website</h3>
+            <p>A personal portfolio website to showcase my skills, projects, and certifications.</p>
+            <div class="project-links">
+                <a href="#">GitHub</a>
+                <a href="#">Live Demo</a>
+            </div>
+        </div>
+        <div class="project">
+            <h3>Project 2: E-commerce Site</h3>
+            <p>An e-commerce website with a shopping cart, product pages, and user authentication.</p>
+            <div class="project-links">
+                <a href="#">GitHub</a>
+                <a href="#">Live Demo</a>
+            </div>
+        </div>
+        <!-- Add more projects as needed -->
+    </section>
+
+    <section id="certificates" class="container">
+        <h2>Certificates</h2>
+        <div class="certificates">
+            <div class="certificate">
+                <img src="https://i.imgur.com/2V1S83V.jpeg" alt="Certificate 1">
+                <h3>Certificate Title 1</h3>
+            </div>
+            <div class="certificate">
+                <img src="https://i.imgur.com/B8KCRXD.jpeg" alt="Certificate 2">
+                <h3>Certificate Title 2</h3>
+            </div>
+            <div class="certificate">
+                <img src="https://i.imgur.com/Vrfnzek.jpeg" alt="Certificate 3">
+                <h3>Certificate Title 3</h3>
+            </div>
+            <!-- Add more certificates as needed -->
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Contact</h2>
+        <div class="contact-icons">
+            <a href="https://twitter.com/yourtwitterhandle" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/yourlinkedinhandle" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yourgithubhandle" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:your.email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Shaurya Fatania. All rights reserved.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const header = document.getElementById("header");
+            const themeToggle = document.getElementById("themeToggle");
+            const background = document.getElementById("background");
+            
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 50) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+
+            themeToggle.addEventListener("click", function() {
+                document.body.classList.toggle("light-theme");
+                if (document.body.classList.contains("light-theme")) {
+                    background.style.opacity = "0.05";
+                } else {
+                    background.style.opacity = "0.1";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
